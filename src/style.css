@@ -1,0 +1,195 @@
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(#121212, #212b46);
+    
+}
+
+
+.title{
+    font-size: 80px;
+    color: #fff;
+    animation: flipTitle 2s;
+    
+
+}
+
+@keyframes flipTitle {
+    from{
+        transform: rotateX(90deg);
+    }
+    to {
+        transform: rotateX(0deg);
+    }
+
+}
+
+.containerInput{
+   
+    background-color: rgba(255,255,255,0.2);
+    padding: 15px;
+    margin: 34px 0;
+    display: flex;
+    border-radius: 8px;
+    box-shadow: 1px 3px 8px rgba(0,0,0, 0.5);
+}
+
+.containerInput input{
+    background-color: transparent;
+    border:0;
+    font-size: 15px;
+    color: #fff;
+    outline: none;
+    margin-right: 8px;
+}
+
+
+.containerInputFocus{
+    background-color: rgba(78, 231, 245, 0.2);
+    padding: 15px;
+    margin: 34px 0;
+    display: flex;
+    border-radius: 8px;
+    box-shadow: 1px 3px 8px rgba(0,0,0, 0.5);
+}
+
+.containerInputFocus input{
+    background-color: transparent;
+    border:0;
+    font-size: 15px;
+    color: #fff;
+    outline: none;
+    margin-right: 8px;
+    
+}
+
+.containerInput input::placeholder{
+    color:#f1f1f1;
+}
+
+.buttonSearch{
+    background-color: transparent;
+    border:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.buttonSearch:hover{
+    transform: scale(1.1);
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    border-radius: 8px;
+    background-color: #fff;
+    animation: slideInfo 2s;
+}
+
+.main h2{
+    margin: 16px 0;
+    font-size: 39px;
+    animation: sizeTransition 2s;
+}
+
+.main span{
+    margin-bottom: 16px;
+    font-size: 20px;
+    animation: sizeTransitionSpan 2s;
+    
+}
+
+@media (max-width: 700px) {
+    .title{
+        font-size:38px;
+    }
+
+    .main h2{
+        font-size: 39px;
+    }
+    .main{
+        width: 80%;
+        min-height: 250px;
+    }
+}
+@media (max-width: 500px) {
+    @keyframes slideInfo {
+        from{
+            width: 0px;
+        }
+        to {
+            width: 289px;
+        }
+    
+    }
+}
+
+@keyframes sizeTransition {
+    from{
+        font-size: 0px;
+    }
+    to{
+        font-size: 39px;
+    }
+}
+
+@keyframes sizeTransitionSpan {
+    from{
+        font-size: 0px;
+    }
+    to{
+        font-size: 20px;
+    }
+}
+
+.menu-icon-left {
+    cursor: pointer;
+    position: fixed;
+    top: 20px; /* Ajuste a distância a partir do topo conforme necessário */
+    left: 20px; /* Ajuste a distância a partir da esquerda conforme necessário */
+    z-index: 2; /* Certifique-se de que o ícone do menu esteja acima de outros elementos */
+  }
+  
+  
+  /* Estilo para a sidebar à esquerda */
+  .sidebar {
+    position: fixed;
+    left: -250px; /* Posicione a sidebar fora da tela esquerda inicialmente */
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #fff;
+    animation: sidebarleft 1s;/* Adicione uma animação de transição */
+    z-index: 1;
+    
+  }
+  
+  .sidebar.open {
+    left: 0; /* Mostra a sidebar quando aberta */
+    animation: sidebarright 1s;
+  }
+  
+@keyframes sidebarleft {
+    from{
+        width: 0px;
+    }
+    to {
+        width: 200px;
+    }
+}
+  
+  
+  
+  
+  
+  
+
