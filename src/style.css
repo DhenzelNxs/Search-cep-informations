@@ -1,195 +1,222 @@
-.container{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: linear-gradient(#121212, #212b46);
-    
+/* ===== Layout geral ===== */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(160deg, #0f0f1a, #212b46);
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 
-
-.title{
-    font-size: 80px;
-    color: #fff;
-    animation: flipTitle 2s;
-    
-
+/* ===== Título e subtítulo ===== */
+.title {
+  font-size: 72px;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 1px;
+  animation: flipTitle 1s ease;
+  text-align: center;
 }
 
-@keyframes flipTitle {
-    from{
-        transform: rotateX(90deg);
-    }
-    to {
-        transform: rotateX(0deg);
-    }
-
+.subtitle {
+  color: #b3b3b3;
+  font-size: 18px;
+  margin-top: -8px;
+  animation: fadeIn 1.5s;
+  text-align: center;
 }
 
-.containerInput{
-   
-    background-color: rgba(255,255,255,0.2);
-    padding: 15px;
-    margin: 34px 0;
-    display: flex;
-    border-radius: 8px;
-    box-shadow: 1px 3px 8px rgba(0,0,0, 0.5);
+/* ===== Input e botão ===== */
+.containerInput,
+.containerInputFocus {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 14px 18px;
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  max-width: 400px;
+  width: 100%;
 }
 
-.containerInput input{
-    background-color: transparent;
-    border:0;
-    font-size: 15px;
-    color: #fff;
-    outline: none;
-    margin-right: 8px;
+.containerInputFocus {
+  background-color: rgba(78, 231, 245, 0.15);
+  box-shadow: 0 4px 20px rgba(78, 231, 245, 0.4);
 }
 
-
-.containerInputFocus{
-    background-color: rgba(78, 231, 245, 0.2);
-    padding: 15px;
-    margin: 34px 0;
-    display: flex;
-    border-radius: 8px;
-    box-shadow: 1px 3px 8px rgba(0,0,0, 0.5);
+.containerInput input,
+.containerInputFocus input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  outline: none;
 }
 
-.containerInputFocus input{
-    background-color: transparent;
-    border:0;
-    font-size: 15px;
-    color: #fff;
-    outline: none;
-    margin-right: 8px;
-    
+.containerInput input::placeholder {
+  color: #ccc;
 }
 
-.containerInput input::placeholder{
-    color:#f1f1f1;
+.buttonSearch {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.buttonSearch{
-    background-color: transparent;
-    border:0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.5s;
+.buttonSearch:hover {
+  transform: scale(1.1);
 }
 
-.buttonSearch:hover{
-    transform: scale(1.1);
+/* ===== Loader ===== */
+.loader {
+  border: 3px solid transparent;
+  border-top: 3px solid #4ee7f5;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 0.8s linear infinite;
 }
 
-.main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 500px;
-    border-radius: 8px;
-    background-color: #fff;
-    animation: slideInfo 2s;
+/* ===== Mensagens de erro ===== */
+.error {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.12);
+  padding: 8px 14px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  animation: fadeIn 0.8s;
 }
 
-.main h2{
-    margin: 16px 0;
-    font-size: 39px;
-    animation: sizeTransition 2s;
+/* ===== Informações do CEP ===== */
+.cep-info {
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.15);
+  margin-top: 20px;
+  max-width: 500px;
+  width: 100%;
+  animation: fadeInUp 0.8s ease;
+  border-left: 6px solid #4ee7f5;
 }
 
-.main span{
-    margin-bottom: 16px;
-    font-size: 20px;
-    animation: sizeTransitionSpan 2s;
-    
+.cep-info h2 {
+  font-size: 26px;
+  color: #212b46;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
-@media (max-width: 700px) {
-    .title{
-        font-size:38px;
-    }
-
-    .main h2{
-        font-size: 39px;
-    }
-    .main{
-        width: 80%;
-        min-height: 250px;
-    }
-}
-@media (max-width: 500px) {
-    @keyframes slideInfo {
-        from{
-            width: 0px;
-        }
-        to {
-            width: 289px;
-        }
-    
-    }
+.cep-info h2 span {
+  color: #4ee7f5;
 }
 
-@keyframes sizeTransition {
-    from{
-        font-size: 0px;
-    }
-    to{
-        font-size: 39px;
-    }
+.cep-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-@keyframes sizeTransitionSpan {
-    from{
-        font-size: 0px;
-    }
-    to{
-        font-size: 20px;
-    }
+.cep-list li {
+  font-size: 16px;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  color: #333;
 }
 
+.cep-list li strong {
+  color: #212b46;
+}
+
+.cep-list li svg {
+  color: #4ee7f5;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+
+/* ===== Menu ===== */
 .menu-icon-left {
-    cursor: pointer;
-    position: fixed;
-    top: 20px; /* Ajuste a distância a partir do topo conforme necessário */
-    left: 20px; /* Ajuste a distância a partir da esquerda conforme necessário */
-    z-index: 2; /* Certifique-se de que o ícone do menu esteja acima de outros elementos */
-  }
-  
-  
-  /* Estilo para a sidebar à esquerda */
-  .sidebar {
-    position: fixed;
-    left: -250px; /* Posicione a sidebar fora da tela esquerda inicialmente */
-    top: 0;
-    bottom: 0;
-    width: 200px;
-    background-color: #fff;
-    animation: sidebarleft 1s;/* Adicione uma animação de transição */
-    z-index: 1;
-    
-  }
-  
-  .sidebar.open {
-    left: 0; /* Mostra a sidebar quando aberta */
-    animation: sidebarright 1s;
-  }
-  
-@keyframes sidebarleft {
-    from{
-        width: 0px;
-    }
-    to {
-        width: 200px;
-    }
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  padding: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  transition: background-color 0.3s ease;
 }
-  
-  
-  
-  
-  
-  
 
+.menu-icon-left:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  background-color: #1c1c2b;
+  box-shadow: 4px 0 12px rgba(0,0,0,0.3);
+  transition: left 0.3s ease;
+  z-index: 5;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+/* ===== Animações ===== */
+@keyframes flipTitle {
+  from { transform: rotateX(90deg); }
+  to { transform: rotateX(0deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 700px) {
+  .title { font-size: 42px; }
+  .subtitle { font-size: 14px; }
+}
+
+@media (max-width: 500px) {
+  .containerInput,
+  .containerInputFocus {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+  }
+}
