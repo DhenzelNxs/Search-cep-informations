@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+<p align="center">
+  <img src="src/assets/Search-cep-informations_logo.png" alt="CepLocator" width="400" />
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# CepLocator
 
-## Available Scripts
+Aplicação web onde o usuário informa um CEP e recebe automaticamente as informações relacionadas a ele, como endereço, bairro, cidade e estado, utilizando integração com a API pública [ViaCEP](https://viacep.com.br/).
 
-In the project directory, you can run:
+**Demo online:** [search-cep-informations.vercel.app](https://search-cep-informations.vercel.app/)
 
-### `npm start`
+## Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Busca de informações de endereço a partir de um CEP brasileiro.
+- Máscara automática de digitação no formato `00000-000`.
+- Busca ao clicar no botão de lupa ou ao pressionar Enter.
+- Exibição de logradouro, bairro, cidade/UF, DDD, código IBGE, código SIAFI e complemento (quando disponíveis).
+- Indicador de carregamento durante a requisição à API.
+- Tratamento de erros para CEP inválido, CEP não encontrado e falha na requisição.
+- Menu lateral (sidebar) com links para GitHub, LinkedIn e Instagram do autor.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tecnologias utilizadas
 
-### `npm test`
+- [React](https://react.dev/) 18 (bootstrapped com [Create React App](https://github.com/facebook/create-react-app))
+- [Axios](https://axios-http.com/) para as chamadas HTTP
+- [Styled Components](https://styled-components.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [React Input Mask](https://github.com/sanniassin/react-input-mask)
+- API [ViaCEP](https://viacep.com.br/) para consulta dos dados de CEP
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Como rodar o projeto localmente
 
-### `npm run build`
+Pré-requisitos: [Node.js](https://nodejs.org/) e npm instalados.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# Clone o repositório
+git clone https://github.com/DhenzelNxs/Search-cep-informations.git
+cd Search-cep-informations
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Instale as dependências
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Inicie o servidor de desenvolvimento
+npm start
+```
 
-### `npm run eject`
+A aplicação estará disponível em [http://localhost:3000](http://localhost:3000).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Outros scripts disponíveis
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Comando | Descrição |
+| --- | --- |
+| `npm start` | Inicia a aplicação em modo de desenvolvimento. |
+| `npm test` | Executa os testes em modo interativo (watch). |
+| `npm run build` | Gera a build de produção na pasta `build`. |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Estrutura do projeto
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```text
+src/
+├── assets/          # Imagens e logo
+├── components/      # Componentes reutilizáveis (ex: Sidebar)
+├── services/        # Configuração da API (Axios + ViaCEP)
+├── utils/           # Funções utilitárias (ex: máscara de CEP)
+├── App.js           # Componente principal da aplicação
+└── index.js         # Ponto de entrada da aplicação
+```
